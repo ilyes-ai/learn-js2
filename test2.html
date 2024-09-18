@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .btn2 {
+        position: absolute;
+        font-size: x-large;
+    }
+    .btn1 {
+        position: relative;
+        font-size: x-large;
+    }
+    body{
+        background-color:  rgb(37, 37, 37);
+    }
+    p{
+        font-size: large;
+    }
+</style>
+<script>
+    function move2(){
+        var randomLeft = Math.floor(Math.random() * 400);
+        var randomTop = Math.floor(Math.random() * 400);
+        var button = document.getElementById("button2");
+        
+        button.style.left = randomLeft  + 50 +"px";
+        button.style.top = randomTop + 150 +"px";
+    }
+    
+    let counter = 0
+    function tripleclick(){
+        counter++;
+        if (counter===1){
+            document.getElementById("output").innerHTML="are u still ";
+        }
+        if (counter===2){
+            document.getElementById("output").innerHTML="won't u change your mind ?";
+        }
+        if (counter===3){
+            document.getElementById("output").innerHTML="you are not willing to give up aren't u? ";
+        }
+        if (counter===4){
+            document.getElementById("output").innerHTML="some times you have to let go things u really want (TRYY YESS)  ";
+        }
+        if (counter===5){
+            document.getElementById("button2").remove();
+            document.getElementById("output").innerHTML="you gave me choice ";
+        }
+    }
+</script>
+<body>
+    <h2>    now that u came to this page i guess you are ready to play?
+    </h2>
+    <a href="test3.html"><button class="btn1" id="button1" >Yes</button></a>
+    <button class="btn2" id="button2" onclick="move2() , tripleclick()">No</button>
+    <p id="output"></p>
+
+</body>
+</html>

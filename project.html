@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Mini projet</title>
+    <style>
+.default-input {
+    left: 50px;
+    top: 50px;
+}
+.movable-button {
+    position: absolute;
+    left: 70px;
+    top: 300px;
+}
+body {
+    background-color: rgb(37, 37, 37);
+}
+section {
+    background-color: rgb(79, 77, 78);
+    margin: 50px;
+    padding: 50px;
+
+}
+h1{
+    text-align: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+div{
+    padding: 50px 50px 50px 50px;
+    
+}
+    </style>
+
+    <script>
+function move() {
+
+var randomLeft = Math.floor(Math.random() * 400);
+var randomTop = Math.floor(Math.random() * 400);
+
+var button = document.getElementById("button");
+button.style.left = randomLeft + 50+"px";
+button.style.top = randomTop+150 +"px";
+
+}
+
+function pagetopage(){
+window.location.href ="test2.html";
+}
+    function verif (){
+    let email = document.getElementById('input').value;
+    let part ='.RPS';
+    if (email.indexOf(part)!== -1){
+        pagetopage();
+        document.getElementById("result").innerHtml=" valid email";
+    } else {
+        move();
+        document.getElementById(" result").innerHtml=" valid email";
+    }}
+
+    </script>
+
+</head>
+<body> 
+
+    <h1>Rock Paper Scissors </h1>
+    <button class = " movable-button "  id ="button"  onclick="verif()"> click here ! </button>
+    <section>
+        please enter your player name here (enter .RPS to verify ):
+        <input placeholder="player name" class="default-input" id="input">
+    </section>
+    <div id="result"></div>
+    
+</body>
+</html>
