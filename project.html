@@ -29,7 +29,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 48px;
+      font-size: 5vw; /* Responsive font size */
       color: white;
       font-weight: bold;
       text-align: center;
@@ -47,12 +47,18 @@
       z-index: 1;
     }
 
-    /* Randomly placed circles */
     .circle {
       position: absolute;
       background-color: white;
       border-radius: 50%;
       opacity: 0.6;
+    }
+
+    /* Media query for phones */
+    @media (max-width: 768px) {
+      .message {
+        font-size: 6vw; /* Adjust font size for smaller screens */
+      }
     }
   </style>
 </head>
@@ -82,6 +88,27 @@
       // Append to container
       container.appendChild(circle);
     }
+
+    // Adjust circle placement on window resize
+    window.addEventListener('resize', () => {
+      document.querySelectorAll('.circle').forEach(circle => circle.remove());
+
+      for (let i = 0; i < 50; i++) {
+        const circle = document.createElement('div');
+        circle.classList.add('circle');
+
+        const size = Math.random() * 80 + 20;
+        circle.style.width = `${size}px`;
+        circle.style.height = `${size}px`;
+
+        const x = Math.random() * window.innerWidth;
+        const y = Math.random() * window.innerHeight;
+        circle.style.left = `${x}px`;
+        circle.style.top = `${y}px`;
+
+        container.appendChild(circle);
+      }
+    });
   </script>
 </body>
 </html>
